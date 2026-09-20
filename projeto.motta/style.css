@@ -1,0 +1,307 @@
+/* ==========================================================
+   1. VARIÁVEIS
+   Guardamos as cores num só lugar. Mude aqui e o site inteiro muda.
+   Experimente trocar --cor-destaque por outra cor!
+   ========================================================== */
+:root {
+  --cor-fundo: #f1f4f8;
+  --cor-texto: #040505;
+  --cor-suave: #5b6480;
+  --cor-destaque: #ea2fde;
+  --cor-marca: #ffd84d;
+  --cor-cartao: #f7f3f3;
+  --cor-borda: #010206;
+}
+
+/* ==========================================================
+   2. RESET E BASE
+   Regras que valem para a página toda.
+   ========================================================== */
+* {
+  box-sizing: border-box; /* padding e borda passam a contar dentro da largura */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* rolagem suave ao clicar nos links do menu */
+}
+
+body {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif; /* fonte + reserva */
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+h2 {
+  color: pink;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+p {
+  max-width: 65ch; /* linhas de texto não ficam longas demais */
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--cor-destaque);
+}
+
+/* ==========================================================
+   3. CABEÇALHO E MENU
+   display: flex coloca os filhos lado a lado.
+   ========================================================== */
+.cabecalho {
+  display: flex;
+  justify-content: space-between; /* logo à esquerda, menu à direita */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: var(--cor-cartao);
+  border-bottom: 1px solid var(--cor-borda);
+  
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none; /* tira as bolinhas da lista */
+}
+
+.menu a {
+  color: var(--cor-texto);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+/* :hover = quando o mouse está em cima */
+.menu a:hover {
+  border-bottom-color: var(--cor-destaque);
+}
+
+/* ==========================================================
+   4. APRESENTAÇÃO (primeira seção)
+   ========================================================== */
+.apresentacao {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+}
+
+.apresentacao h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem); /* cresce e diminui com a tela */
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.apresentacao p {
+  font-size: 1.15rem;
+  color: var(--cor-suave);
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================
+   5. BOTÃO
+   Usado no link da apresentação e no botão do formulário.
+   ========================================================== */
+.botao {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--cor-destaque);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s; /* a troca de cor acontece suavemente */
+}
+
+.botao:hover {
+  background: #1f44c4;
+}
+
+/* ==========================================================
+   6. SEÇÕES E CARTÕES
+   ========================================================== */
+.secao {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.secao h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  /* sublinhado amarelo feito só com gradiente de fundo */
+  display: inline-block;
+  background: linear-gradient(var(--cor-marca), var(--cor-marca)) no-repeat 0 90% / 100% 0.35em;
+}
+
+.cartoes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* em telas pequenas os cartões descem para a linha de baixo */
+}
+
+.cartao {
+  flex: 1 1 200px; /* cresce, encolhe, e tem largura ideal de 200px */
+  padding: 1.5rem;
+  background: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+ 
+}
+
+.cartao h3 {
+  margin-bottom: 0.5rem;
+}
+
+.cartao p {
+  margin-bottom: 0;
+  color: var(--cor-suave);
+}
+
+/* ==========================================================
+   7. LISTA, CÓDIGO E TABELA
+   ========================================================== */
+ol {
+  margin: 0 0 1.5rem 1.5rem;
+}
+
+code {
+  padding: 0.1rem 0.4rem;
+  background: #e8ecf8;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+  font-size: 0.9em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* junta as bordas das células */
+  background: var(--cor-cartao);
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid var(--cor-borda);
+}
+
+th {
+  background: var(--cor-texto);
+  color: #ffffff;
+}
+
+/* ==========================================================
+   8. FORMULÁRIO
+   ========================================================== */
+.formulario {
+  display: flex;
+  flex-direction: column; /* empilha os campos um embaixo do outro */
+  gap: 0.5rem;
+  max-width: 500px;
+}
+
+.formulario label {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 0.75rem;
+  font: inherit;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: var(--cor-cartao);
+}
+
+.formulario button {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+/* :focus = quando o campo está selecionado. Importante para quem usa o teclado. */
+input:focus,
+textarea:focus,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--cor-marca);
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   9. RODAPÉ
+   ========================================================== */
+.rodape {
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--cor-suave);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.rodape p {
+  margin: 0 auto;
+}
+
+/* ==========================================================
+   10. RESPONSIVIDADE
+   Estas regras só valem quando a tela tem 600px ou menos (celulares).
+   ========================================================== */
+@media (max-width: 600px) {
+  .cabecalho {
+    padding: 1rem;
+  }
+
+  .apresentacao {
+    padding-top: 3rem;
+  }
+
+  .secao {
+    padding: 2rem 1rem;
+  }
+}
+
+.cartao {
+  transition: transform 0.2s;
+}
+.cartao:hover {
+  transform: translateY(-4px);
+}
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+}
+
+tbody tr:nth-child(even) {
+  background: #010204;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.galeria img {
+  width: 100%;
+  border-radius: 12px;
+}
+
